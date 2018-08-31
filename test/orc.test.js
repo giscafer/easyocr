@@ -3,6 +3,7 @@ var path = require('path');
 var client = require('../module/orc/AipOcrClient');
 
 var imgPath = path.join(__dirname, '../assets/');
+// var image = fs.readFileSync(imgPath + "example.jpg").toString("base64");
 var image = fs.readFileSync(imgPath + "example.jpg").toString("base64");
 
 // 调用通用文字识别（高精度版）
