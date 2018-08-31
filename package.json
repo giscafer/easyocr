@@ -1,0 +1,22 @@
+{
+  "name": "baidu-aip-demo",
+  "version": "1.0.0",
+  "description": "A tool base on baidu-aip",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giscafer/baidu-aip-demo.git"
+  },
+  "author": "",
+  "license": "Apache License",
+  "bugs": {
+    "url": "https://github.com/giscafer/baidu-aip-demo/issues"
+  },
+  "homepage": "https://github.com/giscafer/baidu-aip-demo#readme",
+  "dependencies": {
+    "baidu-aip-sdk": "^2.3.3"
+  }
+}
