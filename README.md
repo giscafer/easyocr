@@ -5,12 +5,26 @@ A tool base on baidu-aip
 ## Feature 
 
 - ORC `node test/orc.test.js`
+- support pdf orc   `node test/pdf.test.js`
 
 ## TODO List
 
-- support pdf orc
 - support export into word
 - desktop application (base on electron)
+
+
+## Dependencies
+
+
+### pdf 转 图片 依赖三个软件
+
+软件见 `./software/` 目录下
+
+- GraphicsMagick
+- ImageMagick
+- pdfinfo (这个软件放在了项目根目录下，在window环境变量path下，添加该软件路径即可，如本工程`E:\git\demo\orcword`，添加完成后，cmd执行`pdfinfo`测试是否正常)
+
+详细说明见[node-pdf-image](https://github.com/mooz/node-pdf-image)
 
 
 ## License

@@ -17,6 +17,11 @@
   },
   "homepage": "https://github.com/giscafer/baidu-aip-demo#readme",
   "dependencies": {
-    "baidu-aip-sdk": "^2.3.3"
+    "baidu-aip-sdk": "^2.3.3",
+    "es6-promise": "^4.2.4",
+    "rxjs": "^6.3.1"
+  },
+  "devDependencies": {
+    "node-waf": "^1.0.0"
   }
 }
