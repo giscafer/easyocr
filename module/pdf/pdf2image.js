@@ -15,7 +15,7 @@ var exec = require("child_process").exec;
 
 function PDFImage(pdfFilePath, options) {
     if (!options) options = {};
-
+    this.options = options;
     this.pdfFilePath = pdfFilePath;
 
     this.setPdfFileBaseName(options.pdfFileBaseName);
@@ -63,8 +63,12 @@ PDFImage.prototype = {
         return promise;
     },
     numberOfPages: function () {
-        return this.getInfo().then(function (info) {
-            return info["Pages"];
+        return this.getInfo().then(info => {
+            if (info['Pages']) {
+                return info["Pages"]
+            }
+            this.options.pdfinfoFailed = true;
+            return this.options.totalPageSize || 10;
         });
     },
     getOutputImagePathForPage: function (pageNumber) {
@@ -137,7 +141,7 @@ PDFImage.prototype = {
     convertFile: function () {
         var pdfImage = this;
         return new Promise(function (resolve, reject) {
-            pdfImage.numberOfPages().then(function (totalPages) {
+            pdfImage.numberOfPages().then(totalPages => {
                 var convertPromise = new Promise(function (resolve, reject) {
                     var imagePaths = [];
                     for (var i = 0; i < totalPages; i++) {
@@ -147,21 +151,31 @@ PDFImage.prototype = {
                                 imagePaths.sort(); //because of asyc pages we have to reSort pages
                                 resolve(imagePaths);
                             }
-                        }).catch(function (error) {
-                            reject(error);
+                        }).catch(error => {
+                            if (error.stdout.indexOf('No pages will be processed') !== -1) {
+                                console.log(error.stdout);
+                                resolve(imagePaths);
+                            } else {
+                                reject(error);
+                            }
                         });
                     }
                 });
 
-                convertPromise.then(function (imagePaths) {
+                convertPromise.then(imagePaths => {
                     if (pdfImage.combinedImage) {
-                        pdfImage.combineImages(imagePaths).then(function (imagePath) {
+                        pdfImage.combineImages(imagePaths).then(imagePath => {
                             resolve(imagePath);
                         });
                     } else {
                         resolve(imagePaths);
                     }
-                }).catch(function (error) {
+                }).catch(error => {
+                    // if (this.options.pdfinfoFailed) {
+                    //     resolve(imagePaths);
+                    // } else {
+                    //     reject(error);
+                    // }
                     reject(error);
                 });
             });

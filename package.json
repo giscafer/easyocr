@@ -19,6 +19,7 @@
   "dependencies": {
     "baidu-aip-sdk": "^2.3.3",
     "es6-promise": "^4.2.4",
+    "gs": "0.0.2",
     "rxjs": "^6.3.1"
   },
   "devDependencies": {

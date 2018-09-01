@@ -13,10 +13,10 @@ const { take } = require('rxjs/operators');
 
 
 const path = require('path');
-const pdfPath = path.join(__dirname, '../assets/3.pdf');
+const pdfPath = path.join(__dirname, '../assets/专家意见和签名表.pdf');
 
 function test() {
-    pdfModule.convertFile(pdfPath).then(imagePaths => {
+    pdfModule.convertFile(pdfPath, { totalPageSize: 4 }).then(imagePaths => {
         console.log(imagePaths);
         // Open api qps request limit reached
         const source = timer(0, 2000).pipe(take(imagePaths.length));
@@ -34,7 +34,7 @@ function test() {
                 }
             });
         });
-    });
+    }).catch(err => console.log(err));
 }
 
 test();

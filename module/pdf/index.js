@@ -9,11 +9,14 @@ const path = require('path');
 
 
 /* pdf to images */
-function convertFile(pdfPath) {
+function convertFile(pdfPath, opts) {
+    if (!opts) opts = {};
     const pdfImage = new PDFImage(pdfPath, {
+        graphicsMagick: true,
         convertOptions: {
-            "-quality": "95"
-        }
+            "-quality": "100"
+        },
+        ...opts
     });
     console.log(pdfImage)
     return new Promise((resolve, reject) => {
