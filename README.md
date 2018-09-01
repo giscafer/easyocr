@@ -1,5 +1,5 @@
-# baidu-aip-demo
-A tool base on baidu-aip
+# easyorc
+made orc more easy
 
 
 ## Feature 
