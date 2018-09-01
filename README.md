@@ -1,5 +1,5 @@
 # easyorc
-made orc more easy
+make orc more easy
 
 
 ## Feature 
@@ -17,7 +17,9 @@ made orc more easy
 ## Dependencies
 
 
-### pdf 转 图片 依赖三个软件
+### Windows
+
+**pdf 转 图片 依赖三个软件**
 
 软件见 `./software/` 目录下，双击安装
 
@@ -25,7 +27,15 @@ made orc more easy
 - Ghostscript 9.23 for Windows x64
 - pdfinfo (这个安装完成后，打开cmd输入pdfinfo回车，如果成功失败，则在window环境变量path下，添加该软件安装路径即可，添加完成后，cmd执行`pdfinfo`测试是否正常)
 
-非windows系统详细说明见[node-pdf-image](https://github.com/mooz/node-pdf-image)
+### Ubuntu
+
+> sudo apt-get install imagemagick ghostscript poppler-utils
+
+
+### OSX (Yosemite)
+
+> brew install imagemagick ghostscript poppler
+
 
 
 ## License
