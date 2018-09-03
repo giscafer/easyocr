@@ -25,7 +25,7 @@ make orc more easy
 
 - GraphicsMagick  x64
 - Ghostscript 9.23 for Windows x64
-- pdfinfo (这个安装完成后，打开cmd输入pdfinfo回车，如果成功失败，则在window环境变量path下，添加该软件安装路径即可，添加完成后，cmd执行`pdfinfo`测试是否正常)
+- pdfinfo (这个安装完成后，打开cmd输入pdfinfo回车，如果失败，就到在window环境变量path下，添加该软件安装路径即可，添加完成后，cmd执行`pdfinfo`测试是否正常)
 
 ### Ubuntu
 
