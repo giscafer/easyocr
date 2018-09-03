@@ -1,12 +1,12 @@
-# easyorc
-make orc more easy
+# easyocr
+make ocr more easy
 
 
 ## Feature 
 
-- image ORC `node test/orc.test.js`
+- image ocr `node test/ocr.test.js`
 - converting scanned PDF's to an image
-- support pdf orc   `node test/pdf.test.js`
+- support pdf ocr   `node test/pdf.test.js`
 
 ## TODO List
 

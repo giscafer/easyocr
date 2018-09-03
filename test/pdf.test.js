@@ -7,7 +7,7 @@
 
 require('es6-promise');
 const pdfModule = require('../module/pdf');
-const orcModule = require('../module/orc');
+const orcModule = require('../module/ocr');
 const { timer } = require('rxjs');
 const { take } = require('rxjs/operators');
 

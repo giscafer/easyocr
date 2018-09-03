@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const client = require('../module/orc/AipOcrClient');
+const client = require('../module/ocr/AipOcrClient');
 
 const imgPath = path.join(__dirname, '../assets/');
 const image = fs.readFileSync(imgPath + "example.jpg").toString("base64");
