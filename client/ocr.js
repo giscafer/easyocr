@@ -57,7 +57,7 @@ function imgOcr(imgPath) {
 function wordsHandler(words) {
     let text = '';
     for (let w of words) {
-        text += w.words;
+        text += w.words + '\n';
     }
 
     return text;
