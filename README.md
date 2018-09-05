@@ -42,6 +42,14 @@ make ocr more easy
 
 eg. `electron-packager . easyocr --win --out easyocr --arch=x64 --app-version 1.0.0 --overwrite`
 
+## Screenshot
+
+![](./assets/demo.gif)
+
+## Buy me a coffee
+
+:coffee: [Buy me a coffee](https://github.com/giscafer/buy-me-a-coffee)
+
 ## License
 
 Apache License
