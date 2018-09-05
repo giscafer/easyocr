@@ -1,28 +1,34 @@
 {
-  "name": "baidu-aip-demo",
+  "name": "easyocr",
   "version": "1.0.0",
   "description": "A tool base on baidu-aip",
-  "main": "index.js",
+  "main": "client/main.js",
   "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run electron\"",
+    "server": "node server/index",
+    "electron": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/giscafer/baidu-aip-demo.git"
+    "url": "git+https://github.com/giscafer/easyocr.git"
   },
   "author": "",
   "license": "Apache License",
   "bugs": {
-    "url": "https://github.com/giscafer/baidu-aip-demo/issues"
+    "url": "https://github.com/giscafer/easyocr/issues"
   },
-  "homepage": "https://github.com/giscafer/baidu-aip-demo#readme",
+  "homepage": "https://github.com/giscafer/easyocr#readme",
   "dependencies": {
     "baidu-aip-sdk": "^2.3.3",
     "es6-promise": "^4.2.4",
+    "express": "^4.16.3",
     "gs": "0.0.2",
     "rxjs": "^6.3.1"
   },
   "devDependencies": {
+    "concurrently": "^3.6.0",
+    "electron": "^2.0.8",
     "node-waf": "^1.0.0"
   }
 }

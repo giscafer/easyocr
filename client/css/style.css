@@ -1,0 +1,89 @@
+svg {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    display: inline-block;
+}
+
+.loading {
+    position: absolute;
+    top: 50px;
+    left: 60%;
+}
+
+.hide {
+    display: none;
+}
+
+.content {
+    padding: 20px;
+}
+
+#holder {
+    height: 200px;
+    border: 1px dashed #d9d9d9;
+    margin: auto 100px;
+    text-align: center;
+    line-height: 200px;
+    background: #fafafa;
+}
+
+#holder:hover {
+    border-color: #40a9ff;
+    cursor: pointer;
+}
+
+/* 拖拽时用jQuery为其添加边框样式的class */
+
+.holder-ondrag {
+    border: 10px dotted #03A9F4 !important
+}
+
+div.selected {
+    margin: auto 100px;
+}
+
+div.ocr-content {
+    position: relative;
+    min-height: 400px;
+    margin: 20px 100px;
+    padding: 20px;
+    border: 1px solid #d9d9d9;
+}
+
+div.ocr-content h4 {
+    display: inline-block;
+}
+
+#copyBtn {
+    position: absolute;
+    right: 10px;
+}
+
+.btn {
+    line-height: 32px;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid #d9d9d9;
+    white-space: nowrap;
+    padding: 0 15px;
+    font-size: 14px;
+    border-radius: 4px;
+    height: 32px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: all .3s cubic-bezier(.645, .045, .355, 1);
+    position: relative;
+    color: rgba(0, 0, 0, .65);
+    background-color: #fff;
+}
+
+.btn:hover {
+    border-color: #40a9ff;
+}

@@ -7,12 +7,11 @@ make ocr more easy
 - image ocr `node test/ocr.test.js`
 - converting scanned PDF's to an image
 - support pdf ocr   `node test/pdf.test.js`
+- support electron desktop packager
 
 ## TODO List
 
 - support export into word
-- desktop application (base on electron)
-
 
 ## Dependencies
 
@@ -36,7 +35,12 @@ make ocr more easy
 
 > brew install imagemagick ghostscript poppler
 
+## packager
 
+- npm install electron-packager -g
+- electron-packager `. [executable file name ]` --win --out `[folder name]` --arch=x64 --app-version `[version number]` --overwrite
+
+eg. `electron-packager . easyocr --win --out easyocr --arch=x64 --app-version 1.0.0 --overwrite`
 
 ## License
 
