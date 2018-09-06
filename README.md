@@ -37,10 +37,7 @@ make ocr more easy
 
 ## packager
 
-- npm install electron-packager -g
-- electron-packager `. [executable file name ]` --win --out `[folder name]` --arch=x64 --app-version `[version number]` --overwrite
-
-eg. `electron-packager . easyocr --win --out easyocr --arch=x64 --app-version 1.0.0 --overwrite`
+> npm run packager
 
 ## License
 

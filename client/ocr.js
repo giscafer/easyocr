@@ -10,42 +10,54 @@ const fs = require('fs');
 const client = require('../module/ocr/AipOcrClient');
 const pdfModule = require('../module/pdf');
 const orcModule = require('../module/ocr');
-const { timer } = require('rxjs');
-const { take } = require('rxjs/operators');
 
-const path = require('path');
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-function pdfOcr(pdfPath) {
-    // const pdfPath = path.join(__dirname, filePath);
-    pdfModule.convertFile(pdfPath, { totalPageSize: 4 }).then(imagePaths => {
-        console.log(imagePaths);
-        // Open api qps request limit reached
-        const source = timer(0, 2000).pipe(take(imagePaths.length));
-        source.subscribe(val => {
-            orcModule.execOrcByImgPath(imagePaths[val]).then(result => {
-                // console.log(result)
+const timeout = (promise, ms) => new Promise((resolve, reject) => {
+    promise.then(resolve, reject);
+
+    (async () => {
+        await delay(ms);
+        reject(new Error('delay error'));
+    })();
+});
+
+/* PDF OCR */
+const pdfOcr = pdfPath => new Promise((resolve, reject) => {
+    let wordstr = "";
+    (async () => {
+        let imagePaths = await pdfModule.convertFile(pdfPath, { totalPageSize: 4 });
+        const { length } = imagePaths;
+        let count = -1;
+        while (++count < length) {
+            // 延时2秒执行原因：免费版百度OCR 接口有qps限制
+            console.log(imagePaths[count]);
+            try {
+                let result = await timeout(orcModule.execOrcByImgPath(imagePaths[count]), 2000);
                 if (!result.error_code) {
                     const { words_result } = result;
-                    let wordstr = "";
                     for (let row of words_result) {
-                        wordstr += row.words;
+                        wordstr += row.words + '\n';
                     }
-                    console.log(wordstr);
                 }
-            });
-        });
-    }).catch(err => console.log(err));
-}
+            } catch (error) {
+                reject(error);
+            }
 
+        }
+        resolve(wordstr);
+    })();
+});
 
-function imgOcr(imgPath) {
+/* 图片OCR */
+const imgOcr = imgPath => {
     const image = fs.readFileSync(imgPath).toString("base64");
     return new Promise((resolve, reject) => {
         client.accurateBasic(image).then(function (result) {
             if (result.words_result) {
                 return resolve(wordsHandler(result.words_result));
             }
-            return reject('OCR失败失败！');
+            return reject('OCR 失败！');
         }).catch(function (err) {
             // 如果发生网络错误
             return reject(err);

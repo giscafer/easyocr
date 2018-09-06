@@ -4,9 +4,10 @@
   "description": "A tool base on baidu-aip",
   "main": "client/main.js",
   "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run electron\"",
-    "server": "node server/index",
+    "start": "concurrently \"npm run electron\"",
     "electron": "electron .",
+    "packager": "electron-packager . easyocr --win --out easyocr --arch=x64 --app-version 1.0.0 --overwrite",
+    "packager:32": "electron-packager . easyocr --win --out easyocr --arch=ia32 --app-version 1.0.0 --overwrite",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,8 +24,7 @@
     "baidu-aip-sdk": "^2.3.3",
     "es6-promise": "^4.2.4",
     "express": "^4.16.3",
-    "gs": "0.0.2",
-    "rxjs": "^6.3.1"
+    "gs": "0.0.2"
   },
   "devDependencies": {
     "concurrently": "^3.6.0",

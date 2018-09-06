@@ -1,9 +1,9 @@
-// This file is required by the index.html file and will
-// be executed in the renderer process for that window.
-// All of the Node.js APIs are available in this process.
+/**
+ * @author: giscafer ,https://github.com/giscafer
+ * @date: 2018-09-06 15:53:46
+ * @description: 拖拽事件处理，对应不同文件进行OCR识别，以及结果展示等逻辑
+ */
 
-
-const fs = require('fs');
 const ocr = require('./ocr');
 const _ = require('./utils');
 const eleHodler = document.getElementById("holder");
@@ -80,6 +80,13 @@ function fileHandler(path) {
 
     if (_.isPdf(path)) {
         // PDF
+        ocr.pdfOcr(path).then(result => {
+            eleOcrResult.innerText = result;
+            eleLoading.classList.add('hide');
+        }).catch(e => {
+            console.log(e);
+        });
+        return;
     }
 
     return dialog.showMessageBox(null, {
