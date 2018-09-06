@@ -74,6 +74,10 @@ function fileHandler(path) {
             eleLoading.classList.add('hide');
         }).catch(e => {
             console.log(e);
+            dialog.showMessageBox(null, {
+                type: 'error',
+                message: '图片OCR转换失败',
+            });
         });
         return;
     }
@@ -84,7 +88,11 @@ function fileHandler(path) {
             eleOcrResult.innerText = result;
             eleLoading.classList.add('hide');
         }).catch(e => {
-            console.log(e);
+            console.log(e)
+            dialog.showMessageBox(null, {
+                type: 'error',
+                message: 'PDF 提取文字失败',
+            });
         });
         return;
     }
