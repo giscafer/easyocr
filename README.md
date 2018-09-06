@@ -39,6 +39,14 @@ make ocr more easy
 
 > npm run packager
 
+## Screenshot
+
+![](./assets/demo.gif)
+
+## Buy me a coffee
+
+:coffee: [Buy me a coffee](https://github.com/giscafer/buy-me-a-coffee)
+
 ## License
 
 Apache License

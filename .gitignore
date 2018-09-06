@@ -64,3 +64,5 @@ typings/
 easyocr
 assets/*.png
 assets/*.jpg
+package-lock.json
+
