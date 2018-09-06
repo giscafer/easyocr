@@ -43,6 +43,8 @@ make ocr more easy
 
 ![](./assets/demo.gif)
 
+![](./assets/easyocr.gif)
+
 ## Buy me a coffee
 
 :coffee: [Buy me a coffee](https://github.com/giscafer/buy-me-a-coffee)
