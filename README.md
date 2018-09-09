@@ -13,6 +13,13 @@ make ocr more easy
 
 - support export into word
 
+
+## Usage
+
+- npm install
+- `.\module\config.js` 修改百度App ID、App KEY、SECRET KEY 为自己开发者应用配置
+- npm run start
+
 ## Dependencies
 
 
