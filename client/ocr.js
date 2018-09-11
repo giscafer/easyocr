@@ -11,15 +11,11 @@ const client = require('../module/ocr/AipOcrClient');
 const pdfModule = require('../module/pdf');
 const orcModule = require('../module/ocr');
 
-const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 const timeout = (promise, ms) => new Promise((resolve, reject) => {
-    promise.then(resolve, reject);
-
-    (async () => {
-        await delay(ms);
-        reject(new Error('delay error'));
-    })();
+    setTimeout(() => {
+        promise.then(resolve, reject);
+    }, ms);
 });
 
 /* PDF OCR */
@@ -29,10 +25,10 @@ const pdfOcr = pdfPath => new Promise((resolve, reject) => {
         let imagePaths = await pdfModule.convertFile(pdfPath, { totalPageSize: 4 });
         const { length } = imagePaths;
         let count = -1;
+        console.log(imagePaths);
         while (++count < length) {
-            // 延时2秒执行原因：免费版百度OCR 接口有qps限制
-            console.log(imagePaths[count]);
             try {
+                // 延时2秒执行原因：免费版百度OCR 接口有qps限制
                 let result = await timeout(orcModule.execOrcByImgPath(imagePaths[count]), 2000);
                 if (!result.error_code) {
                     const { words_result } = result;
