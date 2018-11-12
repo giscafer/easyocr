@@ -16,9 +16,15 @@ make ocr more easy
 
 ## Usage
 
+### run source code
+
 - npm install
 - `.\module\config.js` 修改百度App ID、App KEY、SECRET KEY 为自己开发者应用配置
 - npm run start
+
+### release package
+
+see [releases](https://github.com/giscafer/easyocr/releases)
 
 ## Dependencies
 

@@ -10,7 +10,7 @@ const path = require('path');
 const client = require('./AipOcrClient');
 
 // 调用通用文字识别（高精度版）
-function execOrc() {
+function execOrc(image) {
     return new Promise((resolve, reject) => {
         client.accurateBasic(image).then(result => {
             return resolve(result);
