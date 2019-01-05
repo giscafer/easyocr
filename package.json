@@ -22,12 +22,12 @@
   "homepage": "https://github.com/giscafer/easyocr#readme",
   "dependencies": {
     "baidu-aip-sdk": "^2.3.3",
-    "es6-promise": "^4.2.4",
+    "es6-promise": "^4.2.5",
     "express": "^4.16.3",
     "gs": "0.0.2"
   },
   "devDependencies": {
-    "concurrently": "^3.6.0",
+    "concurrently": "^3.6.1",
     "electron": "^2.0.8",
     "node-waf": "^1.0.0"
   }

@@ -19,7 +19,7 @@ HttpClient.setRequestInterceptor(function (requestOptions) {
     // 查看参数
     // console.log(requestOptions)
     // 修改参数
-    requestOptions.timeout = 5000;
+    requestOptions.timeout = 15000;
     // 返回参数
     return requestOptions;
 });
